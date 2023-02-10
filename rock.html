@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="ram">
+        <button class="rock" value="rock" > rock</button>
+    <button class="rock" value="paper">paper</button> 
+<button class="rock" value="scissors">scissors</button>
+    </div>
+<div class="txt"><b> Wellcome sanam to nimesh's professional rps</b></div>
+</body>
+
+</div>
+<style>
+    .ram{
+        display: flex;
+    }
+    .rock{
+        height: 200px;
+        width: 200px;
+        border: 2px solid black;
+    }.txt{
+        display: block;
+        border: 2px solid black;
+        height:5vh;
+        width: 94vw;
+    }
+</style>
+<script>
+   r=null;
+com =()=>{
+    con = ['rock','paper','scissors']
+    ma= Math.floor(Math.random()*con.length)
+    return con[ma]
+}
+ onclickrps=(ee)=>{
+      bb = com()
+      bbp = coi(bb,ee)
+    }
+
+coi =(com,player)=>{
+bbnm=document.getElementsByClassName("txt");
+if(com =='paper' && player == 'scissors'){
+         console.log('you win')}
+         else if(com=='scissors' && player == 'rock'){
+             bbnm[0].innerHTML='computer chosed you win';
+         }
+         else if(com=='rock' && player=='paper'){
+             bbnm[0].innerHTML=`computer chosed ${com} therefore u win`
+         }
+         else if(com==player){
+             bbnm[0].innerHTML=`computer chosed ${com} therefore u no game`
+         }
+         else{
+             bbnm[0].innerHTML=`computer chosed ${com} therefore u lose`
+         }
+}
+
+
+playgame =()=>{
+    button = document.querySelectorAll('.rock')
+  button.forEach(element => {
+      element.addEventListener('click',()=>{
+          onclickrps(element.value)
+      })
+  });
+
+}
+playgame();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    a[0].addEventListener('click',()=>{
+//          if(com()==paper){
+//          console.log('you lose')}
+//          else if(com()==scissors){
+//              console.log('you win')
+//          }
+//          else if(com()==rock){
+//              console.log('no game')
+//          }
+//    })
+   
+
+
+//     bbc1 = a[0].addEventListener('click',()=>{
+//           eku =rock
+//          return eku
+//     })
+//     bbc2= a[1].addEventListener('click',()=>{
+//         eku2 = paper
+//         return eku2
+//     })
+//     bbc3= a[2].addEventListener('click',()=>{
+//        eku3 = scissors
+//         return eku3
+//     })
+// if(bbc1() == 'rock'){
+//     console.log('vayo')
+// }
+// else{
+//     console.log('vayena')
+// }
+
+
+  
+    
+</script>
+</html>
