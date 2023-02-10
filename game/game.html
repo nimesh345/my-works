@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head><style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        overflow: hidden;
+    }
+.gamecontainer{
+         background-image: url('ee.avif');
+         height: 100vh;
+         width: 100vw;
+         background-repeat: no-repeat;
+         background-size: cover;
+         position: relative;
+
+}
+.character{
+    background-image: url('index.png');
+    height: 20vh;
+    width: 30vh;
+    background-size:contain ;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 5vh;
+
+}
+.animate{
+    animation: anim 1s linear;
+}
+@keyframes anim {
+    0%{
+        bottom: 0%;
+    }
+    50%{
+        bottom: 433px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+.obstacle{
+    background-image: url('eku.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    right: 0;
+    bottom: -32px;
+   
+}
+.ou{ animation: kko 3s linear infinite;}
+@keyframes kko {
+    0%{
+        left: 100vw;
+
+    }
+    100%{
+        left: -10vw;
+    }
+
+}
+</style>
+<body>
+    <div class="gamecontainer">
+         <div class="gameover">game over</div>
+         <div class="character"></div>
+         <div class="score">score ;0</div>
+         <div class="obstacle ou"></div>
+
+
+    </div>
+</body>
+<script>
+    document.onkeydown = function(a){
+        if (a.keyCode == 38) {
+           let dino = document.querySelector('.character');
+           console.log(dino)
+            dino.classList.add('animate');
+         setTimeout(() => {
+             dino.classList.remove('animate');
+         }, 1000);
+            
+        }
+        setInterval(() => {
+            dino = document.querySelector('.dino');
+            obs = document.querySelector('.obstacle');
+           or = parseInt(window.getComputedStyle(dino,null).getPropertyValue('left'));
+           ory = parseInt( window.getComputedStyle(dino,null).getPropertyValue('top'));
+           obx = parseInt(window.getComputedStyle(obs,null).getPropertyValue('left'));
+           oby = parseInt(window.getComputedStyle(obs,null).getPropertyValue('top'));
+
+           x = Math.abs(or-obx);
+           y = Math.abs(ory-oby);
+           console.log(x,y);
+           if (x<93 && y<52){
+               obs.classList.remove('ou');
+               
+           }
+        }, 1000);
+    } 
+</script>
+</html>
